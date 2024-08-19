@@ -1,6 +1,5 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -18,6 +17,7 @@ import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import getLPTheme from "./getLPTheme";
+import HubSpotForm from "./components/HubSpotForm"; // Import the HubSpotForm component
 
 function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
   return (
@@ -63,7 +63,7 @@ ToggleCustomTheme.propTypes = {
 
 export default function LandingPage() {
   const [mode, setMode] = React.useState("light");
-  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
+  const [showCustomTheme, setShowCustomTheme] = React.useState(false);
   const LPtheme = createTheme(getLPTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
 
@@ -78,8 +78,10 @@ export default function LandingPage() {
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
+
       <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
       <Hero />
+      
       <Box sx={{ bgcolor: "background.default" }}>
         <LogoCollection />
         <Features />
@@ -91,13 +93,18 @@ export default function LandingPage() {
         {/* <Pricing /> */}
         <Divider />
         <FAQ />
+        
+        {/* Use the HubSpotForm component */}
         <Divider />
         <Footer />
+
       </Box>
-      <ToggleCustomTheme
+      
+      {/* <ToggleCustomTheme
         showCustomTheme={showCustomTheme}
         toggleCustomTheme={toggleCustomTheme}
-      />
+      /> */}
+      
     </ThemeProvider>
   );
 }

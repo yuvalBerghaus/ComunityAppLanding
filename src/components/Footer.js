@@ -1,17 +1,16 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
 import FacebookIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/X";
-
+import HubSpotForm from "./HubSpotForm";
 const logoStyle = {
   width: "140px",
   height: "auto",
@@ -21,13 +20,28 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
       {"Copyright © "}
-      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
+      <Link href="https://app.comunityapp.com/">ComunityApp&nbsp;</Link>
       {new Date().getFullYear()}
     </Typography>
   );
 }
 
 export default function Footer() {
+  useEffect(() => {
+    // Load the Termly script for cookie consent
+    const script = document.createElement("script");
+    script.src =
+      "https://app.termly.io/resource-blocker/0e7a92a3-9a7f-4572-b9dc-c6af6bbd3a10?autoBlock=on";
+    script.type = "text/javascript";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup if needed when the component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <Container
       sx={{
@@ -55,45 +69,8 @@ export default function Footer() {
             minWidth: { xs: "100%", sm: "60%" },
           }}
         >
-          {/* <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-            <Box sx={{ ml: "-15px" }}>
-              <img
-                src={
-                  "https://app.comunityapp.com/assets/user/new_design/images/images-new/vacci-logo.png"
-                }
-                style={logoStyle}
-                alt="logo of sitemark"
-              />
-            </Box>
-            <Typography variant="body2" fontWeight={600} gutterBottom>
-              Newsletter
-            </Typography>
-            <Typography variant="body2" color="text.secondary" mb={2}>
-              Subscribe to our newsletter for weekly updates and promotions.
-            </Typography>
-            <Stack direction="row" spacing={1} useFlexGap>
-              <TextField
-                id="outlined-basic"
-                hiddenLabel
-                size="small"
-                variant="outlined"
-                fullWidth
-                aria-label="Enter your email address"
-                placeholder="Your email address"
-                inputProps={{
-                  autoComplete: "off",
-                  "aria-label": "Enter your email address",
-                }}
-              />
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ flexShrink: 0 }}
-              >
-                Subscribe
-              </Button>
-            </Stack>
-          </Box> */}
+          {/* Additional content can be added here */}
+          <HubSpotForm />
         </Box>
         <Box
           sx={{
@@ -114,9 +91,6 @@ export default function Footer() {
           <Link color="text.secondary" href="#">
             Highlights
           </Link>
-          {/* <Link color="text.secondary" href="#">
-            Pricing
-          </Link> */}
           <Link color="text.secondary" href="#">
             FAQs
           </Link>
@@ -181,6 +155,17 @@ export default function Footer() {
           </Typography>
           <Link color="text.secondary" href="#">
             Terms of Service
+          </Link>
+          <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
+            &nbsp;•&nbsp;
+          </Typography>
+          {/* Move the consent preferences link here */}
+          <Link
+            color="text.secondary"
+            href="#"
+            className="termly-display-preferences"
+          >
+            Consent Preferences
           </Link>
           <Copyright />
         </div>

@@ -7,9 +7,9 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import btn_appstore_en from "../assets/btn_appstore_en.png";
-import btn_googleplay_en from "../assets/btn_googleplay_en.png";
-import btn_web from "../assets/btn_web.jpeg";
+import btn_appstore_en from "../assets/button_apple.png";
+import btn_googleplay_en from "../assets/button_google.png";
+import btn_web from "../assets/button_web.png";
 import heroImage from "../assets/hero.png";
 export default function Hero() {
   return (
@@ -69,34 +69,36 @@ export default function Hero() {
             Take full control of your family's medical records in a secure,
             private and seamless way.
           </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            alignSelf="center"
-            spacing={1}
-            useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
-          >
-            <Link
-              href="https://apps.apple.com/pa/app/comunityapp/id6514324016?l=en-GB"
-              variant="body2"
+          <Typography textAlign="center" variant="caption">
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              useFlexGap
+              justifyContent="center"
+              spacing={2}
+              sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
             >
-              <Button>
-                <img src={btn_appstore_en} alt="Background" />
-              </Button>
-            </Link>
+              <Link
+                href="https://apps.apple.com/pa/app/comunityapp/id6514324016?l=en-GB"
+                variant="body2"
+              >
+                <Button>
+                  <img src={btn_appstore_en} alt="App Store" />
+                </Button>
+              </Link>
 
-            <Link href="https://play.google.com/store/apps/details?id=com.community_react_native" variant="body2">
-              <Button>
-                <img src={btn_googleplay_en} alt="Background" />
-              </Button>
-            </Link>
-            <Link href="https://app.comunityapp.com/" variant="body2">
-              <Button>
-                <img src={btn_web} alt="Background" />
-              </Button>
-            </Link>
-          </Stack>
+              <Link href="https://play.google.com/store/apps/details?id=com.community_react_native" variant="body2">
+                <Button>
+                  <img src={btn_googleplay_en} alt="Google Play" />
+                </Button>
+              </Link>
 
+              <Link href="https://app.comunityapp.com/user/login" variant="body2">
+                <Button>
+                  <img src={btn_web} alt="Web" />
+                </Button>
+              </Link>
+            </Stack>
+          </Typography>
           {/* <Typography
             variant="caption"
             textAlign="center"
