@@ -127,19 +127,19 @@ function AppAppBar({ mode, toggleColorMode }) {
                   </Typography>
                 </MenuItem>
                 <MenuItem
-                  onClick={() => scrollToSection("hubspotForm")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Support
-                  </Typography>
-                </MenuItem>
-                <MenuItem
                   onClick={() => scrollToSection("pricing")}
                   sx={{ py: "6px", px: "12px" }}
                 >
                   <Typography variant="body2" color="text.primary">
                     Pricing
+                  </Typography>
+                </MenuItem>
+                <MenuItem
+                  onClick={() => scrollToSection("hubspotForm")}
+                  sx={{ py: "6px", px: "12px" }}
+                >
+                  <Typography variant="body2" color="text.primary">
+                    Support
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -216,6 +216,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                   <MenuItem onClick={() => scrollToSection("features")}>
                     Features
                   </MenuItem>
+                  <MenuItem onClick={() => scrollToSection("aboutUs")}>
+                    About us
+                  </MenuItem>
                   <MenuItem onClick={() => scrollToSection("testimonials")}>
                     Testimonials
                   </MenuItem>
@@ -224,6 +227,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("pricing")}>
                     Pricing
+                  </MenuItem>
+                  <MenuItem onClick={() => scrollToSection("hubspotForm")}>
+                    Support
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("faq")}>
                     FAQ
