@@ -18,7 +18,7 @@ import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import getLPTheme from "./getLPTheme";
 import HubSpotForm from "./components/HubSpotForm"; // Import the HubSpotForm component
-
+import AboutUs from "./components/AboutUs";
 function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
   return (
     <Box
@@ -86,11 +86,14 @@ export default function LandingPage() {
         <LogoCollection />
         <Features />
         <Divider />
+        <AboutUs />
+        
+        <Divider />
         <Testimonials />
         <Divider />
         <Highlights />
         <Divider />
-        {/* <Pricing /> */}
+        <Pricing />
         <Divider />
         <FAQ />
         

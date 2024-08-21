@@ -7,10 +7,11 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import FacebookIcon from "@mui/icons-material/GitHub";
+import Instagram from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/X";
 import HubSpotForm from "./HubSpotForm";
+import Facebook from "@mui/icons-material/Facebook";
 const logoStyle = {
   width: "140px",
   height: "auto",
@@ -180,23 +181,23 @@ export default function Footer() {
         >
           <IconButton
             color="inherit"
-            href="https://github.com/mui"
+            href="https://www.instagram.com/comunityapp/"
             aria-label="GitHub"
             sx={{ alignSelf: "center" }}
           >
-            <FacebookIcon />
+            <Instagram />
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://twitter.com/MaterialUI"
+            href="https://www.facebook.com/profile.php?id=100095077067113&mibextid=ZbWKwL"
             aria-label="X"
             sx={{ alignSelf: "center" }}
           >
-            <TwitterIcon />
+            <Facebook />
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://www.linkedin.com/company/mui/"
+            href="https://www.linkedin.com/company/mycomunityapp/"
             aria-label="LinkedIn"
             sx={{ alignSelf: "center" }}
           >

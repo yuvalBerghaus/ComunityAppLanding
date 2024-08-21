@@ -5,12 +5,13 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import btn_appstore_en from "../assets/button_apple.png";
 import btn_googleplay_en from "../assets/button_google.png";
 import btn_web from "../assets/button_web.png";
 import heroImage from "../assets/hero.png";
+import heroMobileImage from "../assets/hero_mobile.png";
+
 export default function Hero() {
   return (
     <Box
@@ -99,30 +100,19 @@ export default function Hero() {
               </Link>
             </Stack>
           </Typography>
-          {/* <Typography
-            variant="caption"
-            textAlign="center"
-            sx={{ opacity: 0.8 }}
-          >
-            By clicking &quot;Start now&quot; you agree to our&nbsp;
-            <Link href="#" color="primary">
-              Terms & Conditions
-            </Link>
-            .
-          </Typography> */}
         </Stack>
+
+        {/* Box containing both images */}
         <Box
           id="image"
           sx={(theme) => ({
             mt: { xs: 8, sm: 10 },
             alignSelf: "center",
-            height: { xs: 200, sm: 700 },
+            display: "flex", // Flexbox for side-by-side layout
+            flexDirection: { xs: "column", sm: "row" },
+            height: { xs: 200, sm: 800 },
             width: "100%",
-            backgroundImage:
-              theme.palette.mode === "light"
-                ? `url(${heroImage})`
-                : `url(${heroImage})`,
-            backgroundSize: "cover",
+            backgroundColor: theme.palette.background.paper,
             borderRadius: "10px",
             outline: "1px solid",
             outlineColor:
@@ -134,7 +124,30 @@ export default function Hero() {
                 ? `0 0 12px 8px ${alpha("#9CCCFC", 0.2)}`
                 : `0 0 24px 12px ${alpha("#033363", 0.2)}`,
           })}
-        />
+        >
+          {/* Hero.png image */}
+          <Box
+            sx={{
+              flex: 2, // Take up more space
+              backgroundImage: `url(${heroImage})`,
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              borderRadius: "10px 0 0 10px",
+            }}
+          />
+          {/* Hero_Mobile.png image */}
+          <Box
+            sx={{
+              flex: 1, // Take up less space
+              backgroundImage: `url(${heroMobileImage})`,
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              borderRadius: "0 10px 10px 0",
+            }}
+          />
+        </Box>
       </Container>
     </Box>
   );
