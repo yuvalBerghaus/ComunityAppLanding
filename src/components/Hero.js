@@ -60,7 +60,7 @@ export default function Hero() {
             >
               Medical&nbsp;
             </Typography>
-            Records. Anytime. Anywhere.
+            Records. Secured. Organized.
           </Typography>
           <Typography
             textAlign="center"

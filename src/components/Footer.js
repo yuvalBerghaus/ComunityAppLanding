@@ -110,10 +110,7 @@ export default function Footer() {
             About us
           </Link>
           <Link color="text.secondary" href="#">
-            Careers
-          </Link>
-          <Link color="text.secondary" href="#">
-            Press
+            Blogs
           </Link>
         </Box>
         <Box
@@ -129,7 +126,7 @@ export default function Footer() {
           <Link color="text.secondary" href="#">
             Terms
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="https://app.comunityapp.com/privacy-policy">
             Privacy
           </Link>
           <Link color="text.secondary" href="#">
@@ -148,7 +145,7 @@ export default function Footer() {
         }}
       >
         <div>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="https://app.comunityapp.com/privacy-policy">
             Privacy Policy
           </Link>
           <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
