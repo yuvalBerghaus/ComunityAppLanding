@@ -123,7 +123,7 @@ export default function Footer() {
           <Typography variant="body2" fontWeight={600}>
             Legal
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="https://app.comunityapp.com/terms-of-service">
             Terms
           </Link>
           <Link color="text.secondary" href="https://app.comunityapp.com/privacy-policy">
@@ -151,7 +151,7 @@ export default function Footer() {
           <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
             &nbsp;•&nbsp;
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="https://app.comunityapp.com/terms-of-service">
             Terms of Service
           </Link>
           <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
