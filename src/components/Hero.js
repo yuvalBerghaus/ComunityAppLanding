@@ -5,12 +5,13 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import btn_appstore_en from "../assets/btn_appstore_en.png";
-import btn_googleplay_en from "../assets/btn_googleplay_en.png";
-import btn_web from "../assets/btn_web.jpeg";
+import btn_appstore_en from "../assets/button_apple.png";
+import btn_googleplay_en from "../assets/button_google.png";
+import btn_web from "../assets/button_web.png";
 import heroImage from "../assets/hero.png";
+import heroMobileImage from "../assets/hero_mobile.png";
+
 export default function Hero() {
   return (
     <Box
@@ -59,7 +60,7 @@ export default function Hero() {
             >
               Medical&nbsp;
             </Typography>
-            Records. Anytime. Anywhere.
+            Records. Secured. Organized.
           </Typography>
           <Typography
             textAlign="center"
@@ -69,58 +70,49 @@ export default function Hero() {
             Take full control of your family's medical records in a secure,
             private and seamless way.
           </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            alignSelf="center"
-            spacing={1}
-            useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
-          >
-            <Link
-              href="https://apps.apple.com/pa/app/comunityapp/id6514324016?l=en-GB"
-              variant="body2"
+          <Typography textAlign="center" variant="caption">
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              useFlexGap
+              justifyContent="center"
+              spacing={2}
+              sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
             >
-              <Button>
-                <img src={btn_appstore_en} alt="Background" />
-              </Button>
-            </Link>
+              <Link
+                href="https://apps.apple.com/pa/app/comunityapp/id6514324016?l=en-GB"
+                variant="body2"
+              >
+                <Button>
+                  <img src={btn_appstore_en} alt="App Store" />
+                </Button>
+              </Link>
 
-            <Link href="https://play.google.com/store/apps/details?id=com.community_react_native" variant="body2">
-              <Button>
-                <img src={btn_googleplay_en} alt="Background" />
-              </Button>
-            </Link>
-            <Link href="https://app.comunityapp.com/" variant="body2">
-              <Button>
-                <img src={btn_web} alt="Background" />
-              </Button>
-            </Link>
-          </Stack>
+              <Link href="https://play.google.com/store/apps/details?id=com.community_react_native" variant="body2">
+                <Button>
+                  <img src={btn_googleplay_en} alt="Google Play" />
+                </Button>
+              </Link>
 
-          {/* <Typography
-            variant="caption"
-            textAlign="center"
-            sx={{ opacity: 0.8 }}
-          >
-            By clicking &quot;Start now&quot; you agree to our&nbsp;
-            <Link href="#" color="primary">
-              Terms & Conditions
-            </Link>
-            .
-          </Typography> */}
+              <Link href="https://app.comunityapp.com/user/login" variant="body2">
+                <Button>
+                  <img src={btn_web} alt="Web" />
+                </Button>
+              </Link>
+            </Stack>
+          </Typography>
         </Stack>
+
+        {/* Box containing both images */}
         <Box
           id="image"
           sx={(theme) => ({
             mt: { xs: 8, sm: 10 },
             alignSelf: "center",
-            height: { xs: 200, sm: 700 },
+            display: "flex", // Flexbox for side-by-side layout
+            flexDirection: { xs: "column", sm: "row" },
+            height: { xs: 200, sm: 800 },
             width: "100%",
-            backgroundImage:
-              theme.palette.mode === "light"
-                ? `url(${heroImage})`
-                : `url(${heroImage})`,
-            backgroundSize: "cover",
+            backgroundColor: theme.palette.background.paper,
             borderRadius: "10px",
             outline: "1px solid",
             outlineColor:
@@ -132,7 +124,30 @@ export default function Hero() {
                 ? `0 0 12px 8px ${alpha("#9CCCFC", 0.2)}`
                 : `0 0 24px 12px ${alpha("#033363", 0.2)}`,
           })}
-        />
+        >
+          {/* Hero.png image */}
+          <Box
+            sx={{
+              flex: 2, // Take up more space
+              backgroundImage: `url(${heroImage})`,
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              borderRadius: "10px 0 0 10px",
+            }}
+          />
+          {/* Hero_Mobile.png image */}
+          <Box
+            sx={{
+              flex: 1, // Take up less space
+              backgroundImage: `url(${heroMobileImage})`,
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              borderRadius: "0 10px 10px 0",
+            }}
+          />
+        </Box>
       </Container>
     </Box>
   );

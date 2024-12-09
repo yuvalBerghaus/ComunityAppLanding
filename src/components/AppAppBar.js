@@ -83,7 +83,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 px: 0,
               }}
             >
-              <img src={LogoImg} style={logoStyle} alt="logo of sitemark" />
+              <img src={LogoImg} style={logoStyle} alt="logo of comunityapp" />
               <Typography
                 variant="body1"
                 color="text.primary"
@@ -103,6 +103,14 @@ function AppAppBar({ mode, toggleColorMode }) {
                   </Typography>
                 </MenuItem>
                 <MenuItem
+                  onClick={() => scrollToSection("aboutUs")}
+                  sx={{ py: "6px", px: "12px" }}
+                >
+                  <Typography variant="body2" color="text.primary">
+                    About us
+                  </Typography>
+                </MenuItem>
+                <MenuItem
                   onClick={() => scrollToSection("testimonials")}
                   sx={{ py: "6px", px: "12px" }}
                 >
@@ -118,20 +126,28 @@ function AppAppBar({ mode, toggleColorMode }) {
                     Highlights
                   </Typography>
                 </MenuItem>
-                {/* <MenuItem
+                <MenuItem
                   onClick={() => scrollToSection("pricing")}
                   sx={{ py: "6px", px: "12px" }}
                 >
                   <Typography variant="body2" color="text.primary">
                     Pricing
                   </Typography>
-                </MenuItem> */}
+                </MenuItem>
                 <MenuItem
                   onClick={() => scrollToSection("faq")}
                   sx={{ py: "6px", px: "12px" }}
                 >
                   <Typography variant="body2" color="text.primary">
                     FAQ
+                  </Typography>
+                </MenuItem>
+                <MenuItem
+                  onClick={() => scrollToSection("hubspotForm")}
+                  sx={{ py: "6px", px: "12px" }}
+                >
+                  <Typography variant="body2" color="text.primary">
+                    Support
                   </Typography>
                 </MenuItem>
               </Box>
@@ -152,7 +168,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 href="https://app.comunityapp.com/user/login"
                 target="_blank"
               >
-                Sign in
+                LogIn
               </Button>
               <Button
                 color="primary"
@@ -162,7 +178,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 href="https://app.comunityapp.com/user/register"
                 target="_blank"
               >
-                Sign up
+                Try it free
               </Button>
             </Box>
             <Box sx={{ display: { sm: "", md: "none" } }}>
@@ -200,6 +216,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                   <MenuItem onClick={() => scrollToSection("features")}>
                     Features
                   </MenuItem>
+                  <MenuItem onClick={() => scrollToSection("aboutUs")}>
+                    About us
+                  </MenuItem>
                   <MenuItem onClick={() => scrollToSection("testimonials")}>
                     Testimonials
                   </MenuItem>
@@ -212,6 +231,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                   <MenuItem onClick={() => scrollToSection("faq")}>
                     FAQ
                   </MenuItem>
+                  <MenuItem onClick={() => scrollToSection("hubspotForm")}>
+                    Support
+                  </MenuItem>
                   <Divider />
                   <MenuItem>
                     <Button
@@ -222,7 +244,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
-                      Sign up
+                      Try it free
                     </Button>
                   </MenuItem>
                   <MenuItem>
@@ -234,7 +256,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
-                      Sign in
+                      LogIn
                     </Button>
                   </MenuItem>
                 </Box>
