@@ -19,9 +19,9 @@ const tiers = [
     description: [
       "2 Coadmins per user",
       "7 Profiles",
-      "50 Images",
+      "50 Images (max 8MB)",
       "10 Audios (max 2 min)",
-      "10 videos (max 2 min)",
+      "10 videos (max 30 sec)",
       "350 MB of documents",
     ],
     buttonText: "Sign up for free",
