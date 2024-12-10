@@ -18,12 +18,11 @@ const tiers = [
     price: "0",
     description: [
       "2 Coadmins per user",
-      "5 Profiles",
-      "5 Pictures",
-      "5 Audios of 1 Minute",
-      "5 videos of 20 Seconds",
-      "5 MB of documents",
-      "Unlimited text",
+      "7 Profiles",
+      "50 Images",
+      "10 Audios (max 2 min)",
+      "10 videos (max 30 sec)",
+      "350 MB of documents",
     ],
     buttonText: "Sign up for free",
     buttonVariant: "outlined",
@@ -34,27 +33,26 @@ const tiers = [
     price: "2.99",
     description: [
       "3 Coadmins per user",
-      "10 Profiles",
-      "7 Audios of 1.15 Minute",
-      "7 videos of 40 Seconds",
-      "10 MB of documents",
-      "3 Coadmins per user",
-      "Unlimited text",
+      "7 Profiles",
+      "150 Images",
+      "50 Audios (max 4 min)",
+      "30 videos (max 1 min)",
+      "1000 MB of documents",
     ],
     buttonText: "Upgrade",
     buttonVariant: "contained",
   },
   {
     title: "Premium",
-    price: "4.99",
+    price: "8.99",
     description: [
-      "5 Coadmins per user",
-      "20 Profiles",
-      "15 Pictures",
-      "10 Audios of 1.30 Minute",
-      "10 videos of 1 Minute",
-      "15 MB of documents",
-      "Unlimited text",
+      "3 Coadmins per user",
+      "12 Profiles",
+      "25GB of storage",
+      "Images",
+      "Audios",
+      "Videos",
+
     ],
     buttonText: "Upgrade",
     buttonVariant: "outlined",
@@ -85,10 +83,9 @@ export default function Pricing() {
           Pricing
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Quickly build an effective pricing table for your potential customers
-          with this layout. <br />
-          It&apos;s built with default Material UI components with little
-          customization.
+        Enjoy our Free Plan or unlock even more features with our Gold or Premium Plans, perfect for adding more members of your family and keeping everyone’s medical records organized and secure
+
+
         </Typography>
       </Box>
       <Grid container spacing={3} alignItems="center" justifyContent="center">
@@ -215,9 +212,21 @@ export default function Pricing() {
                 </Button>
               </CardActions>
             </Card>
+            
           </Grid>
         ))}
       </Grid>
+      <Box
+        sx={{
+          width: { sm: "100%", md: "60%" },
+          textAlign: { sm: "left", md: "center" },
+        }}
+      >
+        <Typography variant="body1" color="text.secondary">
+          Find attractive annual pricing in our mobile app. Search ComunityApp in your app store
+
+        </Typography>
+      </Box>
     </Container>
   );
 }
