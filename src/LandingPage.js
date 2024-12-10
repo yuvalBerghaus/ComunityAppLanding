@@ -86,19 +86,17 @@ export default function LandingPage() {
         <LogoCollection />
         <Features />
         <Divider />
-        <AboutUs />
-        
-        <Divider />
-        <Testimonials />
+        <Pricing />
         <Divider />
         <Highlights />
         <Divider />
-        <Pricing />
+        <Testimonials />
+        <Divider />
         <Divider />
         <FAQ />
-        
         {/* Use the HubSpotForm component */}
         <Divider />
+        <AboutUs />
         <Footer />
 
       </Box>

@@ -91,7 +91,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                   fontFamily: "Lato",
                 }}
               >
-                Community
+                <b>ComunityApp</b>
               </Typography>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <MenuItem

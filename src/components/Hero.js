@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import btn_appstore_en from "../assets/button_apple.png";
 import btn_googleplay_en from "../assets/button_google.png";
 import btn_web from "../assets/button_web.png";
-import heroImage from "../assets/hero.png";
-import heroMobileImage from "../assets/hero_mobile.png";
+import heroImage from "../assets/mockup.png";
+// import heroMobileImage from "../assets/hero_mobile.png";
 
 export default function Hero() {
   return (
@@ -137,7 +137,7 @@ export default function Hero() {
             }}
           />
           {/* Hero_Mobile.png image */}
-          <Box
+          {/* <Box
             sx={{
               flex: 1, // Take up less space
               backgroundImage: `url(${heroMobileImage})`,
@@ -146,7 +146,7 @@ export default function Hero() {
               backgroundRepeat: "no-repeat",
               borderRadius: "0 10px 10px 0",
             }}
-          />
+          /> */}
         </Box>
       </Container>
     </Box>

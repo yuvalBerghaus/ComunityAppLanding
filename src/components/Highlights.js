@@ -58,8 +58,8 @@ export default function Highlights() {
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
-        color: "white",
-        bgcolor: "#0C3C73",
+        color: "black",
+        bgcolor: "#E7ECF1",
       }}
     >
       <Container
@@ -80,7 +80,7 @@ export default function Highlights() {
           <Typography component="h2" variant="h4">
             Highlights
           </Typography>
-          <Typography variant="body1" sx={{ color: "grey.400" }}>
+          <Typography variant="body1" sx={{ color: "black" }}>
             Our platform revolutionizes health data management by ensuring your
             medical records are secure, organized, and easily accessible.
             Discover how our innovative features and exceptional support
@@ -102,7 +102,7 @@ export default function Highlights() {
                   border: "1px solid",
                   borderColor: "grey.800",
                   background: "transparent",
-                  backgroundColor: "grey.900",
+                  backgroundColor: "white",
                 }}
               >
                 <Box sx={{ opacity: "50%" }}>{item.icon}</Box>
@@ -110,7 +110,7 @@ export default function Highlights() {
                   <Typography fontWeight="medium" gutterBottom>
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "grey.400" }}>
+                  <Typography variant="body2" sx={{ color: "black" }}>
                     {item.description}
                   </Typography>
                 </div>

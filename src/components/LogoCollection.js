@@ -35,7 +35,7 @@ export default function LogoCollection() {
       >
         Privacy and security is our number one priority
       </Typography>
-      <Grid container justifyContent="center" sx={{ mt: 10, opacity: 0.6 }}>
+      {/* <Grid container justifyContent="center" sx={{ mt: 10, opacity: 0.6 }}>
         {logos.map((logo, index) => (
           <Grid item key={index}>
             <img
@@ -45,7 +45,7 @@ export default function LogoCollection() {
             />
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 }
