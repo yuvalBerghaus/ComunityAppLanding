@@ -109,7 +109,7 @@ export default function Footer() {
           <Link color="text.secondary" href="#">
             About us
           </Link>
-          <Link color="text.secondary" href="#">
+          <Link color="text.secondary" href="https://comunityappblogs.vercel.app/">
             Blogs
           </Link>
         </Box>
