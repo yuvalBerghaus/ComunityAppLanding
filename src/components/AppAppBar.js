@@ -150,6 +150,14 @@ function AppAppBar({ mode, toggleColorMode }) {
                     Support
                   </Typography>
                 </MenuItem>
+                <MenuItem
+                  onClick={() => (window.location.href = "https://comunityappblogs.vercel.app")}
+                  sx={{ py: "6px", px: "12px" }}
+                >
+                  <Typography variant="body2" color="text.primary">
+                    Blog
+                  </Typography>
+                </MenuItem>
               </Box>
             </Box>
             <Box
@@ -233,6 +241,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("hubspotForm")}>
                     Support
+                  </MenuItem>
+                  <MenuItem onClick={() => (window.location.href = "https://comunityappblogs.vercel.app")}>
+                    Blog
                   </MenuItem>
                   <Divider />
                   <MenuItem>
