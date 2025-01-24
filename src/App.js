@@ -33,6 +33,8 @@ import LandingPage from './LandingPage';
 
 export default function Square() {
   useEffect(() => {
+    console.log("App started");
+
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
