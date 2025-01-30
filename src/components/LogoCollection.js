@@ -92,7 +92,7 @@ export default function LogoCollection({ language }) {
       >
         {message}
       </Typography>
-      <Grid container justifyContent="center" sx={{ mt: 10, opacity: 0.6 }}>
+      {/* <Grid container justifyContent="center" sx={{ mt: 10, opacity: 0.6 }}>
         {logos.map((logo, index) => (
           <Grid item key={index}>
             <img
@@ -102,7 +102,7 @@ export default function LogoCollection({ language }) {
             />
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 }

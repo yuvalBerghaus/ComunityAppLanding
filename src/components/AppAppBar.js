@@ -321,6 +321,7 @@ const menuContent = {
       { id: "pricing", label: "Pricing" },
       { id: "faq", label: "FAQ" },
       { id: "hubspotForm", label: "Support" },
+      
     ],
     buttons: {
       login: "Log In",
@@ -541,6 +542,21 @@ function AppAppBar({ mode, toggleColorMode, language }) {
                       {content.buttons.login}
                     </Button>
                   </MenuItem>
+                  <MenuItem>
+                    <Button
+                      color="primary"
+                      variant="outlined"
+                      component="a"
+                      href="https://comunityappblogs.vercel.app"
+                      target="_blank"
+                      sx={{ width: "100%" }}
+                    >
+                      {content.buttons.blog}
+                    </Button>
+                  </MenuItem>
+
+
+
                 </Box>
               </Drawer>
             </Box>
