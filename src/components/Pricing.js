@@ -250,6 +250,7 @@ const tiersContent = {
       title: "Free",
       price: "0",
       description: [
+        "20 AI prompts",
         "2 Coadmins per user",
         "7 Profiles",
         "50 Images",
@@ -265,6 +266,7 @@ const tiersContent = {
       subheader: "Recommended",
       price: "2.99",
       description: [
+        "30 AI prompts",
         "3 Coadmins per user",
         "7 Profiles",
         "150 Images",
@@ -279,6 +281,7 @@ const tiersContent = {
       title: "Premium",
       price: "8.99",
       description: [
+        "50 AI prompts",
         "3 Coadmins per user",
         "12 Profiles",
         "25GB of storage",
@@ -295,6 +298,7 @@ const tiersContent = {
       title: "Plan Gratuito",
       price: "0.00",
       description: [
+        "20 ideas IA",
         "7 Perfiles incluidos",
         "2 CoAdmin por perfil",
         "50 Imagenes",
@@ -310,6 +314,7 @@ const tiersContent = {
       subheader: "Recomendado",
       price: "2.99",
       description: [
+        "30 ideas IA",
         "7 Perfiles incluidos",
         "3 CoAdmin por perfil",
         "150 Imagenes",
@@ -324,6 +329,7 @@ const tiersContent = {
       title: "Premium",
       price: "8.99",
       description: [
+        "50 ideas IA",
         "12 Perfiles incluidos",
         "3 CoAdmin por perfil",
         "600 Imagenes",
