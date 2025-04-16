@@ -96,27 +96,6 @@ export default function Square() {
         name: "Google Play Store",
         url: 'https://play.google.com/store/apps/details?id=com.community_react_native',
       });
-    } else {
-      // For web, dynamically add Google Tag Manager scripts
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B96W6TNL5K';
-      script.async = true;
-      document.head.appendChild(script);
-
-      const script2 = document.createElement('script');
-      script2.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-B96W6TNL5K');
-      `;
-      document.head.appendChild(script2);
-
-      // Cleanup the scripts when the component unmounts
-      return () => {
-        document.head.removeChild(script);
-        document.head.removeChild(script2);
-      };
     }
   }, []);
 
@@ -142,7 +121,7 @@ export default function Square() {
           <div style={{ padding: 20, backgroundColor: 'white', color: 'black', borderRadius: 8 }}>
             <h2>Download ComunityApp</h2>
             <p>Would you like to open the {storeLinks.name} to download the app?</p>
-            <button
+            {/* <button
               onClick={() => window.open(storeLinks.url, '_blank')}
               style={{
                 padding: '10px 20px',
@@ -155,7 +134,26 @@ export default function Square() {
               }}
             >
               Go to {storeLinks.name}
-            </button>
+            </button> */}
+            <button
+  onClick={() => {
+
+    // Open store URL in new tab
+    window.open(storeLinks.url, '_blank');
+  }}
+  style={{
+    padding: '10px 20px',
+    margin: '10px',
+    border: 'none',
+    backgroundColor: '#007BFF',
+    color: 'white',
+    cursor: 'pointer',
+    borderRadius: 5,
+  }}
+>
+  Go to {storeLinks.name}
+</button>
+
             <button
               onClick={() => setShowStorePrompt(false)}
               style={{
