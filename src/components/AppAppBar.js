@@ -471,7 +471,7 @@ function AppAppBar({ mode, toggleColorMode, language }) {
                 variant="text"
                 size="small"
                 component="a"
-                href="https://blog.comunityapp.com/posts"
+                href="https://comunityapp.com/blog/posts"
                 target="_blank"
               >
                 {content.buttons.blog}
@@ -547,7 +547,7 @@ function AppAppBar({ mode, toggleColorMode, language }) {
                       color="primary"
                       variant="outlined"
                       component="a"
-                      href="https://blog.comunityapp.com/posts"
+                      href="https://comunityapp.com/blog/posts"
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
