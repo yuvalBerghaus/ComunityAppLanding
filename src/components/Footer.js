@@ -222,22 +222,56 @@ const content = {
   EN: {
     productLinks: ["Features", "Testimonials", "Highlights", "FAQs"],
     companyLinks: ["About us", "Blogs"],
-    legalLinks: ["Terms", "Privacy", "Contact"],
-    legalFooter: ["Privacy Policy", "Terms of Service", "Consent Preferences"],
+    legalLinks: [
+      { name: "Terms", url: "https://app.comunityapp.com/terms-of-service" },
+      { name: "Privacy", url: "https://app.comunityapp.com/privacy-policy" },
+      { name: "Contact", url: "mailto:support@comunityapp.com" },
+    ],
+    legalFooter: [
+      { name: "Privacy Policy", url: "https://app.comunityapp.com/privacy-policy" },
+      { name: "Terms of Service", url: "https://app.comunityapp.com/terms-of-service" },
+      // { name: "Consent Preferences", url: "#" }, // (or termly link class)
+    ],
     copyright: "Copyright © ComunityApp",
   },
   ES: {
     productLinks: ["Funciones", "Testimonios", "Destacados", "FAQs"],
     companyLinks: ["Nosotros", "Blogs"],
-    legalLinks: ["Términos", "Privacidad", "Contacto"],
+    legalLinks: [
+    { name: "Términos", url: "https://app.comunityapp.com/terms-of-service" },
+    { name: "Privacidad", url: "https://app.comunityapp.com/privacy-policy" },
+    { name: "Contacto", url: "mailto:support@comunityapp.com" }
+    ],
     legalFooter: [
-      "Términos de Privacidad",
-      "Términos de Servicio",
-      "Términos de Consentimiento",
+      { name: "Términos de Privacidad", url: "https://app.comunityapp.com/privacy-policy" },
+      { name: "Términos de Servicio", url: "https://app.comunityapp.com/terms-of-service" },
+      // { name: "Términos de Consentimiento", url: "#" },
     ],
     copyright: "Derechos de autor © ComunityApp",
   },
 };
+
+
+// const content = {
+//   EN: {
+//     productLinks: ["Features", "Testimonials", "Highlights", "FAQs"],
+//     companyLinks: ["About us", "Blogs"],
+//     legalLinks: ["Terms", "Privacy", "Contact"],
+//     legalFooter: ["Privacy Policy", "Terms of Service", "Consent Preferences"],
+//     copyright: "Copyright © ComunityApp",
+//   },
+//   ES: {
+//     productLinks: ["Funciones", "Testimonios", "Destacados", "FAQs"],
+//     companyLinks: ["Nosotros", "Blogs"],
+//     legalLinks: ["Términos", "Privacidad", "Contacto"],
+//     legalFooter: [
+//       "Términos de Privacidad",
+//       "Términos de Servicio",
+//       "Términos de Consentimiento",
+//     ],
+//     copyright: "Derechos de autor © ComunityApp",
+//   },
+// };
 
 export default function Footer({ language }) {
   const langContent = content[language] || content.EN;
@@ -328,11 +362,18 @@ export default function Footer({ language }) {
           <Typography variant="body2" fontWeight={600}>
             Legal
           </Typography>
-          {langContent.legalLinks.map((link, index) => (
+          {/* {langContent.legalLinks.map((link, index) => (
             <Link key={index} color="text.secondary" href="#">
               {link}
             </Link>
           ))}
+           */}
+           {langContent.legalLinks.map((linkObj, index) => (
+  <Link key={index} color="text.secondary" href={linkObj.url}>
+    {linkObj.name}
+  </Link>
+))}
+
         </Box>
       </Box>
       <Box
@@ -346,7 +387,20 @@ export default function Footer({ language }) {
         }}
       >
         <div>
-          {langContent.legalFooter.map((link, index) => (
+        {langContent.legalFooter.map((linkObj, index) => (
+  <React.Fragment key={index}>
+    <Link color="text.secondary" href={linkObj.url}>
+      {linkObj.name}
+    </Link>
+    {index < langContent.legalFooter.length - 1 && (
+      <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
+        &nbsp;•&nbsp;
+      </Typography>
+    )}
+  </React.Fragment>
+))}
+
+          {/* {langContent.legalFooter.map((link, index) => (
             <React.Fragment key={index}>
               <Link color="text.secondary" href="#">
                 {link}
@@ -360,7 +414,7 @@ export default function Footer({ language }) {
                 </Typography>
               )}
             </React.Fragment>
-          ))}
+          ))} */}
           <Typography variant="body2" color="text.secondary" mt={1}>
             {langContent.copyright}&nbsp;{new Date().getFullYear()}
           </Typography>
