@@ -531,7 +531,7 @@ export default function Footer({ language = "EN" }) {
             minWidth: { xs: "100%", sm: "60%" },
           }}
         >
-          <HubSpotForm />
+          {/* <HubSpotForm /> */}
         </Box>
 
         <Box sx={{ display: { xs: "none", sm: "flex" }, flexDirection: "column", gap: 1 }}>
