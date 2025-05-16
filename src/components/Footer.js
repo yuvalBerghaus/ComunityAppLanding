@@ -503,15 +503,6 @@ const content = {
 export default function Footer({ language = "EN" }) {
   const langContent = content[language] || content.EN;
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://app.termly.io/resource-blocker/0e7a92a3-9a7f-4572-b9dc-c6af6bbd3a10?autoBlock=on";
-    script.type = "text/javascript";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => document.body.removeChild(script);
-  }, []);
 
   return (
     <Container
