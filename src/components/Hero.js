@@ -315,9 +315,9 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import btn_appstore from "../assets/button_apple.webp";
-import btn_googleplay from "../assets/button_google.webp";
-import btn_web from "../assets/button_web.webp";
+import btn_appstore from "../assets/button_apple.png";
+import btn_googleplay from "../assets/button_google.png";
+import btn_web from "../assets/button_web.png";
 import heroImage from "../assets/mockup.webp";
 
 const content = {
