@@ -327,6 +327,8 @@ const menuContent = {
       login: "Log In",
       tryFree: "Try it free",
       blog: "Blog",
+      clinicLogin: "Clinic Log In",
+      clinicTryFree: "Request Demo",
     },
   },
   ES: {
@@ -344,11 +346,13 @@ const menuContent = {
       login: "Iniciar sesión",
       tryFree: "Prueba gratis",
       blog: "Blog",
+      clinicLogin: "Acceso Clínica",
+      clinicTryFree: "Solicitar Demo",
     },
   },
 };
 
-function AppAppBar({ mode, toggleColorMode, language }) {
+function AppAppBar({ mode, toggleColorMode, language, edition = "user" }) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -370,6 +374,11 @@ function AppAppBar({ mode, toggleColorMode, language }) {
   };
 
   const content = menuContent[language] || menuContent.EN;
+  const isClinic = edition === "clinic";
+  const loginHref = isClinic ? "https://app.comunityapp.com/clinic/login" : "https://app.comunityapp.com/user/login";
+  const registerHref = isClinic ? "https://app.comunityapp.com/clinic/register" : "https://app.comunityapp.com/user/register";
+  const loginLabel = isClinic ? content.buttons.clinicLogin : content.buttons.login;
+  const tryFreeLabel = isClinic ? content.buttons.clinicTryFree : content.buttons.tryFree;
 
   return (
     <div>
@@ -451,20 +460,20 @@ function AppAppBar({ mode, toggleColorMode, language }) {
                 variant="text"
                 size="small"
                 component="a"
-                href="https://app.comunityapp.com/user/login"
+                href={loginHref}
                 target="_blank"
               >
-                {content.buttons.login}
+                {loginLabel}
               </Button>
               <Button
                 color="primary"
                 variant="contained"
                 size="small"
                 component="a"
-                href="https://app.comunityapp.com/user/register"
+                href={registerHref}
                 target="_blank"
               >
-                {content.buttons.tryFree}
+                {tryFreeLabel}
               </Button>
               <Button
                 color="primary"
@@ -523,11 +532,11 @@ function AppAppBar({ mode, toggleColorMode, language }) {
                       color="primary"
                       variant="contained"
                       component="a"
-                      href="https://app.comunityapp.com/user/register"
+                      href={registerHref}
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
-                      {content.buttons.tryFree}
+                      {tryFreeLabel}
                     </Button>
                   </MenuItem>
                   <MenuItem>
@@ -535,11 +544,11 @@ function AppAppBar({ mode, toggleColorMode, language }) {
                       color="primary"
                       variant="outlined"
                       component="a"
-                      href="https://app.comunityapp.com/user/login"
+                      href={loginHref}
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
-                      {content.buttons.login}
+                      {loginLabel}
                     </Button>
                   </MenuItem>
                   <MenuItem>
@@ -568,9 +577,10 @@ function AppAppBar({ mode, toggleColorMode, language }) {
 }
 
 AppAppBar.propTypes = {
-  mode: PropTypes.oneOf(["dark", "light"]).isRequired,
-  toggleColorMode: PropTypes.func.isRequired,
+  mode: PropTypes.oneOf(["dark", "light"]),
+  toggleColorMode: PropTypes.func,
   language: PropTypes.oneOf(["EN", "ES"]).isRequired,
+  edition: PropTypes.oneOf(["user", "clinic"]),
 };
 
 export default AppAppBar;

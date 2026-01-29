@@ -88,7 +88,7 @@ const content = {
   },
 };
 
-export default function AboutUs({ language = "EN" }) {
+export default function AboutUs({ language = "EN", edition = "user" }) {
   const [expanded, setExpanded] = React.useState(false);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);

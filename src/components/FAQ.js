@@ -215,7 +215,7 @@ const faqContent = {
   },
 };
 
-export default function FAQ({ language }) {
+export default function FAQ({ language, edition = "user" }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
