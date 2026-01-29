@@ -310,6 +310,9 @@ const logoStyle = {
   cursor: "pointer",
 };
 
+const CLINIC_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeoaaKR2MrhJVkppAg9iHsR6vHtuEfhXVQHDrIFieAThbjYIA/viewform";
+
 const menuContent = {
   EN: {
     brand: "ComunityApp",
@@ -327,6 +330,7 @@ const menuContent = {
       login: "Log In",
       tryFree: "Try it free",
       blog: "Blog",
+      clinicCta: "Request access",
     },
   },
   ES: {
@@ -344,12 +348,14 @@ const menuContent = {
       login: "Iniciar sesión",
       tryFree: "Prueba gratis",
       blog: "Blog",
+      clinicCta: "Solicitar acceso",
     },
   },
 };
 
-function AppAppBar({ mode, toggleColorMode, language }) {
+function AppAppBar({ mode, toggleColorMode, language, edition = "user" }) {
   const [open, setOpen] = React.useState(false);
+  const isClinic = edition === "clinic";
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -446,25 +452,27 @@ function AppAppBar({ mode, toggleColorMode, language }) {
               }}
             >
               {/* <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} /> */}
-              <Button
-                color="primary"
-                variant="text"
-                size="small"
-                component="a"
-                href="https://app.comunityapp.com/user/login"
-                target="_blank"
-              >
-                {content.buttons.login}
-              </Button>
+              {!isClinic && (
+                <Button
+                  color="primary"
+                  variant="text"
+                  size="small"
+                  component="a"
+                  href="https://app.comunityapp.com/user/login"
+                  target="_blank"
+                >
+                  {content.buttons.login}
+                </Button>
+              )}
               <Button
                 color="primary"
                 variant="contained"
                 size="small"
                 component="a"
-                href="https://app.comunityapp.com/user/register"
+                href={isClinic ? CLINIC_FORM_URL : "https://app.comunityapp.com/user/register"}
                 target="_blank"
               >
-                {content.buttons.tryFree}
+                {isClinic ? content.buttons.clinicCta : content.buttons.tryFree}
               </Button>
               <Button
                 color="primary"
@@ -523,25 +531,27 @@ function AppAppBar({ mode, toggleColorMode, language }) {
                       color="primary"
                       variant="contained"
                       component="a"
-                      href="https://app.comunityapp.com/user/register"
+                      href={isClinic ? CLINIC_FORM_URL : "https://app.comunityapp.com/user/register"}
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
-                      {content.buttons.tryFree}
+                      {isClinic ? content.buttons.clinicCta : content.buttons.tryFree}
                     </Button>
                   </MenuItem>
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="outlined"
-                      component="a"
-                      href="https://app.comunityapp.com/user/login"
-                      target="_blank"
-                      sx={{ width: "100%" }}
-                    >
-                      {content.buttons.login}
-                    </Button>
-                  </MenuItem>
+                  {!isClinic && (
+                    <MenuItem>
+                      <Button
+                        color="primary"
+                        variant="outlined"
+                        component="a"
+                        href="https://app.comunityapp.com/user/login"
+                        target="_blank"
+                        sx={{ width: "100%" }}
+                      >
+                        {content.buttons.login}
+                      </Button>
+                    </MenuItem>
+                  )}
                   <MenuItem>
                     <Button
                       color="primary"
@@ -568,9 +578,10 @@ function AppAppBar({ mode, toggleColorMode, language }) {
 }
 
 AppAppBar.propTypes = {
-  mode: PropTypes.oneOf(["dark", "light"]).isRequired,
-  toggleColorMode: PropTypes.func.isRequired,
+  mode: PropTypes.oneOf(["dark", "light"]),
+  toggleColorMode: PropTypes.func,
   language: PropTypes.oneOf(["EN", "ES"]).isRequired,
+  edition: PropTypes.oneOf(["user", "clinic"]),
 };
 
 export default AppAppBar;

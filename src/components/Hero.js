@@ -320,6 +320,9 @@ import btn_googleplay from "../assets/button_google.png";
 import btn_web from "../assets/button_web.png";
 import heroImage from "../assets/mockup.webp";
 
+const CLINIC_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeoaaKR2MrhJVkppAg9iHsR6vHtuEfhXVQHDrIFieAThbjYIA/viewform";
+
 const content = {
   EN: {
     heading: {
@@ -328,6 +331,13 @@ const content = {
     },
     subheading:
       "Easily manage and access your family's medical history — securely, privately, and anytime you need it.",
+    clinicHeading: {
+      part1: "For Clinics & Labs",
+      part2: "Secure medical records for your practice.",
+    },
+    clinicSubheading:
+      "Connect with patients, manage records securely, and streamline how your clinic or lab shares health information.",
+    clinicCta: "Request access",
     buttons: [
       {
         href: "https://apps.apple.com/pa/app/comunityapp/id6514324016?l=en-GB",
@@ -353,6 +363,13 @@ const content = {
     },
     subheading:
       "Gestiona y accede fácilmente al historial médico de tu familia: seguro, privado y disponible cuando lo necesites.",
+    clinicHeading: {
+      part1: "Para Clínicas y Laboratorios",
+      part2: "Registros médicos seguros para tu práctica.",
+    },
+    clinicSubheading:
+      "Conecta con pacientes, gestiona registros de forma segura y simplifica cómo tu clínica o laboratorio comparte información de salud.",
+    clinicCta: "Solicitar acceso",
     buttons: [
       {
         href: "https://apps.apple.com/pa/app/comunityapp/id6514324016?l=es",
@@ -373,8 +390,9 @@ const content = {
   },
 };
 
-export default function Hero({ language }) {
+export default function Hero({ language, edition = "user" }) {
   const langContent = content[language] || content.EN;
+  const isClinic = edition === "clinic";
 
   return (
     <Box
@@ -400,39 +418,73 @@ export default function Hero({ language }) {
       >
         <Box component="header" sx={{ textAlign: "center", mb: 2 }}>
           <h1 style={{ fontSize: "clamp(3.5rem, 10vw, 4rem)", margin: 0 }}>
-            {langContent.heading.part1}
+            {isClinic ? langContent.clinicHeading.part1 : langContent.heading.part1}
           </h1>
           <h2 style={{ fontWeight: 600, fontSize: "2rem", margin: "1rem auto" }}>
-            {langContent.heading.part2}
+            {isClinic ? langContent.clinicHeading.part2 : langContent.heading.part2}
           </h2>
           <p style={{ fontSize: "1.1rem", color: "#555", maxWidth: "700px", margin: "1rem auto" }}>
-            {langContent.subheading}
+            {isClinic ? langContent.clinicSubheading : langContent.subheading}
           </p>
         </Box>
 
-        <Box
-          component="nav"
-          aria-label="Download buttons"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 2,
-            flexWrap: "wrap",
-            mb: 6,
-          }}
-        >
-          {langContent.buttons.map(({ href, alt, src }, index) => (
+        {isClinic ? (
+          <Box
+            component="nav"
+            aria-label="Clinic request access"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 2,
+              flexWrap: "wrap",
+              mb: 6,
+            }}
+          >
             <a
-              key={index}
-              href={href}
-              aria-label={alt}
+              href={CLINIC_FORM_URL}
+              aria-label={langContent.clinicCta}
               rel="noopener noreferrer"
               target="_blank"
+              style={{
+                display: "inline-block",
+                padding: "12px 32px",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                color: "#fff",
+                backgroundColor: "#1976d2",
+                borderRadius: "8px",
+                textDecoration: "none",
+                boxShadow: "0 2px 8px rgba(25, 118, 210, 0.4)",
+              }}
             >
-              <img src={src} alt={alt} width="160" loading="lazy" />
+              {langContent.clinicCta}
             </a>
-          ))}
-        </Box>
+          </Box>
+        ) : (
+          <Box
+            component="nav"
+            aria-label="Download buttons"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 2,
+              flexWrap: "wrap",
+              mb: 6,
+            }}
+          >
+            {langContent.buttons.map(({ href, alt, src }, index) => (
+              <a
+                key={index}
+                href={href}
+                aria-label={alt}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img src={src} alt={alt} width="160" loading="lazy" />
+              </a>
+            ))}
+          </Box>
+        )}
 
         <Box
           id="image"

@@ -110,7 +110,6 @@
 //   );
 // }
 import React from "react";
-import PropTypes from "prop-types";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -128,68 +127,23 @@ import Footer from "./components/Footer";
 import HubSpotForm from "./components/HubSpotForm";
 import AboutUs from "./components/AboutUs";
 
-function ToggleLanguage({ currentLanguage, toggleLanguage }) {
-  console.log("Rendering ToggleLanguage with currentLanguage:", currentLanguage);
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100dvw",
-        position: "fixed",
-        bottom: 24,
-      }}
-    >
-      <ToggleButtonGroup
-        color="primary"
-        exclusive
-        value={currentLanguage}
-        onChange={(event, newLanguage) => {
-          console.log("onChange triggered with newLanguage:", newLanguage);
-          if (newLanguage !== null) {
-            toggleLanguage(newLanguage);
-          }
-        }}
-        aria-label="Language"
-        sx={{
-          backgroundColor: "background.default",
-          "& .Mui-selected": {
-            pointerEvents: "none", // Prevent reselecting the active language
-          },
-        }}
-      >
-        <ToggleButton value="ES">ES</ToggleButton>
-        <ToggleButton value="EN">EN</ToggleButton>
-      </ToggleButtonGroup>
-    </Box>
-  );
-}
-
-ToggleLanguage.propTypes = {
-  currentLanguage: PropTypes.string.isRequired,
-  toggleLanguage: PropTypes.func.isRequired,
-};
-
 export default function LandingPage() {
-
-
-  
-  console.log("Rendering LandingPage");
-  const [language, setLanguage] = React.useState("EN"); // Initial language is English
-  console.log("Initial language:", language);
+  const [language, setLanguage] = React.useState("EN");
+  const [edition, setEdition] = React.useState("user"); // "user" | "clinic"
 
   const toggleLanguage = (newLanguage) => {
-    console.log("toggleLanguage called with newLanguage:", newLanguage);
-    setLanguage(newLanguage);
-    console.log("Updated language state to:", newLanguage);
+    if (newLanguage !== null) setLanguage(newLanguage);
+  };
+
+  const handleEditionChange = (event, newEdition) => {
+    if (newEdition !== null) setEdition(newEdition);
   };
 
   return (
     <>
       <CssBaseline />
-      <AppAppBar language={language} />
-      <Hero language={language} />
+      <AppAppBar language={language} edition={edition} />
+      <Hero language={language} edition={edition} />
       <Box sx={{ bgcolor: "background.default" }}>
         <LogoCollection language={language} />
         <Features language={language} />
@@ -205,7 +159,48 @@ export default function LandingPage() {
         <AboutUs language={language} />
         <Footer language={language} />
       </Box>
-      <ToggleLanguage currentLanguage={language} toggleLanguage={toggleLanguage} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100dvw",
+          position: "fixed",
+          bottom: 24,
+          gap: 1,
+        }}
+      >
+        <ToggleButtonGroup
+          color="primary"
+          exclusive
+          value={edition}
+          onChange={handleEditionChange}
+          aria-label="Edition"
+          size="small"
+          sx={{
+            backgroundColor: "background.default",
+            "& .Mui-selected": { pointerEvents: "none" },
+          }}
+        >
+          <ToggleButton value="user">User</ToggleButton>
+          <ToggleButton value="clinic">Clinic / Lab</ToggleButton>
+        </ToggleButtonGroup>
+        <ToggleButtonGroup
+          color="primary"
+          exclusive
+          value={language}
+          onChange={(e, newLanguage) => newLanguage !== null && toggleLanguage(newLanguage)}
+          aria-label="Language"
+          size="small"
+          sx={{
+            backgroundColor: "background.default",
+            "& .Mui-selected": { pointerEvents: "none" },
+          }}
+        >
+          <ToggleButton value="EN">EN</ToggleButton>
+          <ToggleButton value="ES">ES</ToggleButton>
+        </ToggleButtonGroup>
+      </Box>
     </>
   );
 }
