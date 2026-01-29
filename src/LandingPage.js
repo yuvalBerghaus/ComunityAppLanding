@@ -114,8 +114,6 @@ import PropTypes from "prop-types";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import AppAppBar from "./components/AppAppBar";
@@ -173,65 +171,39 @@ ToggleLanguage.propTypes = {
   toggleLanguage: PropTypes.func.isRequired,
 };
 
-const editionLabels = {
-  EN: { user: "For Users", clinic: "For Clinics" },
-  ES: { user: "Para Usuarios", clinic: "Para Clínicas" },
-};
-
 export default function LandingPage() {
-  const [language, setLanguage] = React.useState("EN");
-  const [edition, setEdition] = React.useState("user"); // "user" | "clinic"
+
+
+  
+  console.log("Rendering LandingPage");
+  const [language, setLanguage] = React.useState("EN"); // Initial language is English
+  console.log("Initial language:", language);
 
   const toggleLanguage = (newLanguage) => {
-    if (newLanguage !== null) setLanguage(newLanguage);
+    console.log("toggleLanguage called with newLanguage:", newLanguage);
+    setLanguage(newLanguage);
+    console.log("Updated language state to:", newLanguage);
   };
-
-  const labels = editionLabels[language] || editionLabels.EN;
 
   return (
     <>
       <CssBaseline />
-      <AppAppBar language={language} edition={edition} />
-      <Box
-        sx={{
-          position: "sticky",
-          top: 56,
-          zIndex: 1100,
-          bgcolor: "background.paper",
-          borderBottom: 1,
-          borderColor: "divider",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Tabs
-          value={edition}
-          onChange={(_, value) => setEdition(value)}
-          aria-label="Landing page edition"
-          sx={{
-            minHeight: 48,
-            "& .MuiTab-root": { fontWeight: 600, textTransform: "none" },
-          }}
-        >
-          <Tab label={labels.user} value="user" />
-          <Tab label={labels.clinic} value="clinic" />
-        </Tabs>
-      </Box>
-      <Hero language={language} edition={edition} />
+      <AppAppBar language={language} />
+      <Hero language={language} />
       <Box sx={{ bgcolor: "background.default" }}>
-        <LogoCollection language={language} edition={edition} />
-        <Features language={language} edition={edition} />
+        <LogoCollection language={language} />
+        <Features language={language} />
         <Divider />
-        <Pricing language={language} edition={edition} />
+        <Pricing language={language} />
         <Divider />
-        <Highlights language={language} edition={edition} />
+        <Highlights language={language} />
         <Divider />
-        <Testimonials language={language} edition={edition} />
+        <Testimonials language={language} />
         <Divider />
-        <FAQ language={language} edition={edition} />
+        <FAQ language={language} />
         <Divider />
-        <AboutUs language={language} edition={edition} />
-        <Footer language={language} edition={edition} />
+        <AboutUs language={language} />
+        <Footer language={language} />
       </Box>
       <ToggleLanguage currentLanguage={language} toggleLanguage={toggleLanguage} />
     </>

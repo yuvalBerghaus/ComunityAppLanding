@@ -101,7 +101,7 @@ const content = {
   },
 };
 
-export default function Highlights({ language = "EN", edition = "user" }) {
+export default function Highlights({ language = "EN" }) {
   const langContent = content[language] || content.EN;
 
   return (

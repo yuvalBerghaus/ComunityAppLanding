@@ -99,7 +99,7 @@ const testimonialsData = {
   ],
 };
 
-export default function Testimonials({ language = "EN", edition = "user" }) {
+export default function Testimonials({ language = "EN" }) {
   const testimonials = testimonialsData[language] || testimonialsData.EN;
 
   return (

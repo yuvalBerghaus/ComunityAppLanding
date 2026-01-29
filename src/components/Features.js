@@ -73,7 +73,7 @@ const content = {
   },
 };
 
-export default function Features({ language = "EN", edition = "user" }) {
+export default function Features({ language = "EN" }) {
   const { heading, description, items, cta, ctaLabel } = content[language] || content.EN;
 
   return (

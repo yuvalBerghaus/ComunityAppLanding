@@ -603,7 +603,7 @@ const plans = {
 }
 };
 
-export default function Pricing({ language = "EN", edition = "user" }) {
+export default function Pricing({ language = "EN" }) {
   const { heading, intro, footer, tiers } = plans[language];
 
   return (

@@ -77,7 +77,7 @@ const content = {
   ES: "Nuestra prioridad #1 es la Privacidad y Seguridad de tus datos",
 };
 
-export default function LogoCollection({ language, edition = "user" }) {
+export default function LogoCollection({ language }) {
   const theme = useTheme();
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
   const message = content[language] || content.EN;

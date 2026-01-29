@@ -322,94 +322,59 @@ import heroImage from "../assets/mockup.webp";
 
 const content = {
   EN: {
-    user: {
-      heading: {
-        part1: "Your Medical Records",
-        part2: "Secured. Organized. Always Accessible.",
-      },
-      subheading:
-        "Easily manage and access your family's medical history — securely, privately, and anytime you need it.",
-      buttons: [
-        {
-          href: "https://apps.apple.com/pa/app/comunityapp/id6514324016?l=en-GB",
-          alt: "Download ComunityApp – Secure Health Records – on the App Store",
-          src: btn_appstore,
-        },
-        {
-          href: "https://play.google.com/store/apps/details?id=com.community_react_native",
-          alt: "Download ComunityApp – Secure Health Records – on Google Play",
-          src: btn_googleplay,
-        },
-        {
-          href: "https://app.comunityapp.com/user/login",
-          alt: "Access ComunityApp Secure Medical Records on Web",
-          src: btn_web,
-        },
-      ],
+    heading: {
+      part1: "Your Medical Records",
+      part2: "Secured. Organized. Always Accessible.",
     },
-    clinic: {
-      heading: {
-        part1: "Clinic & Practice Management",
-        part2: "Secure. Compliant. Patient-Centered.",
+    subheading:
+      "Easily manage and access your family's medical history — securely, privately, and anytime you need it.",
+    buttons: [
+      {
+        href: "https://apps.apple.com/pa/app/comunityapp/id6514324016?l=en-GB",
+        alt: "Download ComunityApp – Secure Health Records – on the App Store",
+        src: btn_appstore,
       },
-      subheading:
-        "Manage your clinic's patient records, appointments, and workflows in one secure platform built for healthcare providers.",
-      buttons: [
-        {
-          href: "https://app.comunityapp.com/clinic/login",
-          alt: "Access Clinic Portal on Web",
-          src: btn_web,
-        },
-      ],
-    },
+      {
+        href: "https://play.google.com/store/apps/details?id=com.community_react_native",
+        alt: "Download ComunityApp – Secure Health Records – on Google Play",
+        src: btn_googleplay,
+      },
+      {
+        href: "https://app.comunityapp.com/user/login",
+        alt: "Access ComunityApp Secure Medical Records on Web",
+        src: btn_web,
+      },
+    ],
   },
   ES: {
-    user: {
-      heading: {
-        part1: "Tus Registros Médicos",
-        part2: "Seguros. Organizados. Siempre Disponibles.",
-      },
-      subheading:
-        "Gestiona y accede fácilmente al historial médico de tu familia: seguro, privado y disponible cuando lo necesites.",
-      buttons: [
-        {
-          href: "https://apps.apple.com/pa/app/comunityapp/id6514324016?l=es",
-          alt: "Descargar ComunityApp – Registros Médicos Seguros – en App Store",
-          src: btn_appstore,
-        },
-        {
-          href: "https://play.google.com/store/apps/details?id=com.community_react_native",
-          alt: "Descargar ComunityApp – Registros Médicos Seguros – en Google Play",
-          src: btn_googleplay,
-        },
-        {
-          href: "https://app.comunityapp.com/user/login",
-          alt: "Accede a ComunityApp – Registros Médicos Seguros en la Web",
-          src: btn_web,
-        },
-      ],
+    heading: {
+      part1: "Tus Registros Médicos",
+      part2: "Seguros. Organizados. Siempre Disponibles.",
     },
-    clinic: {
-      heading: {
-        part1: "Gestión de Clínicas y Consultorios",
-        part2: "Seguro. Conforme. Centrado en el Paciente.",
+    subheading:
+      "Gestiona y accede fácilmente al historial médico de tu familia: seguro, privado y disponible cuando lo necesites.",
+    buttons: [
+      {
+        href: "https://apps.apple.com/pa/app/comunityapp/id6514324016?l=es",
+        alt: "Descargar ComunityApp – Registros Médicos Seguros – en App Store",
+        src: btn_appstore,
       },
-      subheading:
-        "Administra los expedientes de pacientes, citas y flujos de trabajo de tu clínica en una plataforma segura para proveedores de salud.",
-      buttons: [
-        {
-          href: "https://app.comunityapp.com/clinic/login",
-          alt: "Acceder al Portal de Clínica en la Web",
-          src: btn_web,
-        },
-      ],
-    },
+      {
+        href: "https://play.google.com/store/apps/details?id=com.community_react_native",
+        alt: "Descargar ComunityApp – Registros Médicos Seguros – en Google Play",
+        src: btn_googleplay,
+      },
+      {
+        href: "https://app.comunityapp.com/user/login",
+        alt: "Accede a ComunityApp – Registros Médicos Seguros en la Web",
+        src: btn_web,
+      },
+    ],
   },
 };
 
-export default function Hero({ language, edition = "user" }) {
+export default function Hero({ language }) {
   const langContent = content[language] || content.EN;
-  const sectionContent = langContent[edition] || langContent.user;
 
   return (
     <Box
@@ -435,19 +400,19 @@ export default function Hero({ language, edition = "user" }) {
       >
         <Box component="header" sx={{ textAlign: "center", mb: 2 }}>
           <h1 style={{ fontSize: "clamp(3.5rem, 10vw, 4rem)", margin: 0 }}>
-            {sectionContent.heading.part1}
+            {langContent.heading.part1}
           </h1>
           <h2 style={{ fontWeight: 600, fontSize: "2rem", margin: "1rem auto" }}>
-            {sectionContent.heading.part2}
+            {langContent.heading.part2}
           </h2>
           <p style={{ fontSize: "1.1rem", color: "#555", maxWidth: "700px", margin: "1rem auto" }}>
-            {sectionContent.subheading}
+            {langContent.subheading}
           </p>
         </Box>
 
         <Box
           component="nav"
-          aria-label={edition === "clinic" ? "Clinic portal links" : "Download buttons"}
+          aria-label="Download buttons"
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -456,7 +421,7 @@ export default function Hero({ language, edition = "user" }) {
             mb: 6,
           }}
         >
-          {sectionContent.buttons.map(({ href, alt, src }, index) => (
+          {langContent.buttons.map(({ href, alt, src }, index) => (
             <a
               key={index}
               href={href}

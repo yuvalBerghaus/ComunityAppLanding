@@ -500,7 +500,7 @@ const content = {
   },
 };
 
-export default function Footer({ language = "EN", edition = "user" }) {
+export default function Footer({ language = "EN" }) {
   const langContent = content[language] || content.EN;
 
 
