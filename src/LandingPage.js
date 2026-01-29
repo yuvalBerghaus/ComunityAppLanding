@@ -143,7 +143,7 @@ export default function LandingPage() {
     <>
       <CssBaseline />
       <AppAppBar language={language} edition={edition} />
-      <Hero language={language} edition={edition} />
+      <Hero language={language} edition={edition} onEditionChange={handleEditionChange} />
       <Box sx={{ bgcolor: "background.default" }}>
         <LogoCollection language={language} />
         <Features language={language} />
@@ -162,29 +162,12 @@ export default function LandingPage() {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          justifyContent: "center",
           width: "100dvw",
           position: "fixed",
           bottom: 24,
-          gap: 1,
         }}
       >
-        <ToggleButtonGroup
-          color="primary"
-          exclusive
-          value={edition}
-          onChange={handleEditionChange}
-          aria-label="Edition"
-          size="small"
-          sx={{
-            backgroundColor: "background.default",
-            "& .Mui-selected": { pointerEvents: "none" },
-          }}
-        >
-          <ToggleButton value="user">User</ToggleButton>
-          <ToggleButton value="clinic">Clinic / Lab</ToggleButton>
-        </ToggleButtonGroup>
         <ToggleButtonGroup
           color="primary"
           exclusive

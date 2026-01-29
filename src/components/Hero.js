@@ -313,8 +313,8 @@ import * as React from "react";
 import { alpha } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import btn_appstore from "../assets/button_apple.png";
 import btn_googleplay from "../assets/button_google.png";
 import btn_web from "../assets/button_web.png";
@@ -390,7 +390,7 @@ const content = {
   },
 };
 
-export default function Hero({ language, edition = "user" }) {
+export default function Hero({ language, edition = "user", onEditionChange }) {
   const langContent = content[language] || content.EN;
   const isClinic = edition === "clinic";
 
@@ -416,6 +416,20 @@ export default function Hero({ language, edition = "user" }) {
           pb: { xs: 8, sm: 12 },
         }}
       >
+        <Tabs
+          value={edition}
+          onChange={(e, newValue) => onEditionChange && onEditionChange(e, newValue)}
+          aria-label="User or Clinic"
+          sx={{
+            mb: 3,
+            "& .MuiTabs-indicator": { height: 3, borderRadius: "3px 3px 0 0" },
+            "& .MuiTab-root": { fontWeight: 600, textTransform: "none", fontSize: "1rem" },
+          }}
+        >
+          <Tab label="User" value="user" />
+          <Tab label="Clinic / Lab" value="clinic" />
+        </Tabs>
+
         <Box component="header" sx={{ textAlign: "center", mb: 2 }}>
           <h1 style={{ fontSize: "clamp(3.5rem, 10vw, 4rem)", margin: 0 }}>
             {isClinic ? langContent.clinicHeading.part1 : langContent.heading.part1}
